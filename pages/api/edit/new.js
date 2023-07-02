@@ -6,8 +6,9 @@ export default async function Handler(요청,응답){
             return 응답.status(500).json('제목안씀');
       }
             const db = (await connectDB).db('forum')
-      let result = await db.collection('post').insertOne(요청.body)
+      let result = await db.collection('post').updateOne({_id:result},{$set:{title:'바보'}})
       응답.redirect(302,'/list')
       
-        console.log(응답)
+              
+      
   }
